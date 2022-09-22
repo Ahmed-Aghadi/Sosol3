@@ -2,7 +2,7 @@
 
 A decentralized donation platform where users can create entries for gathering funds and donate others.
 
-Try this at: [Donate3](https://donate3.vercel.app/)
+Try this at: [Sosol3](https://donate3.vercel.app/)
 
 To run frontend :
 
