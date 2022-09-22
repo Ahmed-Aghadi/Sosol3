@@ -1,0 +1,64 @@
+{
+    "name": "client",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@emotion/react": "^11.10.4",
+        "@emotion/server": "^11.10.0",
+        "@mantine/carousel": "^5.4.0",
+        "@mantine/core": "^5.3.3",
+        "@mantine/dropzone": "^5.3.3",
+        "@mantine/hooks": "^5.3.3",
+        "@mantine/next": "^5.3.3",
+        "@mantine/notifications": "^5.4.0",
+        "@rainbow-me/rainbowkit": "^0.6.0",
+        "@rajesh896/video-thumbnails-generator": "^2.3.9",
+        "@tableland/sdk": "^3.1.2",
+        "@tabler/icons": "^1.96.0",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^13.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "@xmtp/xmtp-js": "^6.1.0",
+        "Buffer": "^0.0.0",
+        "axios": "^0.27.2",
+        "embla-carousel-react": "^7.0.3",
+        "ethers": "^5.7.1",
+        "moralis-v1": "^1.11.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-moralis": "^1.4.2",
+        "react-player": "^2.11.0",
+        "react-router-dom": "^6.4.0",
+        "react-scripts": "5.0.1",
+        "wagmi": "^0.6.6",
+        "web-vitals": "^2.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.11",
+        "postcss": "^8.4.16"
+    }
+}
