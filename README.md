@@ -8,9 +8,10 @@ XMTP is used to provide chatting features, Chainlink is used to get random numbe
 
 | Sponsors Used |
 |---------------|
+|[Moralis](#moralis)|
+|[Filecoin](#filecoin)|
 |[XMTP](#xmtp)|
 |[Chainlink](#chainlink)|
-|[Filecoin](#filecoin)|
 |[Tableland](#tableland)|
 |[Valist](#valist)|
 
@@ -41,6 +42,18 @@ yarn hardhat deploy --network localhost
 
 # Sponsors Used
 
+## Moralis
+
+Moralis was used to create the website barebone as it provides sign in, save to ipfs, database and a lot more.
+
+[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/client/src/index.js#L35)
+
+## Filecoin
+
+Filecoin was used to store content creators's contents that is their videos. And then to fetch it such that globaly everyone can see and appreciate the content in an decentralized way.
+
+[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/client/src/components/Upload.js#L277)
+
 ## XMTP
 
 XMTP is used for providing chatting features to users where they communicate with each other by adding their address or they can message the content creator.
@@ -52,12 +65,6 @@ XMTP is used for providing chatting features to users where they communicate wit
 Chainlink was used to randomly select an NFTs out of 3 based on their rarities while minting.
 
 [One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/smart_contracts/contracts/SosolNFTMarketplace.sol#L56)
-
-## Filecoin
-
-Filecoin was used to store content creators's contents that is their videos. And then to fetch it such that globaly everyone can see and appreciate the content in an decentralized way.
-
-[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/client/src/components/Upload.js#L277)
 
 ## Tableland
 
