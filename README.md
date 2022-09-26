@@ -15,7 +15,7 @@ XMTP is used to provide chatting features, Chainlink is used to get random numbe
 
 ## Deployements
 
-Deployed website at Vercel: [Sosol3](https://sonate3.vercel.app/)
+Deployed website at Vercel: [Sosol3](https://sosol3.vercel.app/)
 
 Deployed website at Valist: [Sosol3](https://bafybeihgiaqcxwzg6udbfszkpjjhb5gejgihgetfvb22tsftkyjfkon5wm.ipfs.gateway.valist.io/)
 
