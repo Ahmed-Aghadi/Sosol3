@@ -12,6 +12,7 @@ XMTP is used to provide chatting features, Chainlink is used to get random numbe
 |[Chainlink](#chainlink)|
 |[Tableland](#tableland)|
 |[Valist](#valist)|
+|[Polygon](#polygon)|
 
 ## Deployements
 
@@ -76,4 +77,10 @@ Tableland was used to store the public data of every users and appropriate URIs 
 Valist was used to deploy the website in an decentralized platform that makes the platform completely decentralized giving users more trust and freedom. It is used to manage releases and other things for project managment and it's members.
 
 [One use case example in the project](https://bafybeihgiaqcxwzg6udbfszkpjjhb5gejgihgetfvb22tsftkyjfkon5wm.ipfs.gateway.valist.io/)
+
+### Polygon
+
+All the smart contracts are deployed on polygon mumbai testnet.
+
+[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/tree/main/smart_contracts/contracts)
 
