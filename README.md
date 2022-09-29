@@ -82,5 +82,5 @@ Valist was used to deploy the website in an decentralized platform that makes th
 
 All the smart contracts are deployed on polygon mumbai testnet.
 
-[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/tree/main/smart_contracts/contracts)
+[One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/client/src/constants/contractAddress.json)
 
