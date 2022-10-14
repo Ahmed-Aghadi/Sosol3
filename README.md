@@ -4,21 +4,21 @@ A decentralized social network platform where content creators all around the wo
 
 XMTP is used to provide chatting features, Chainlink is used to get random number to select a particular NFT randomly considering it's rarity also, tableland is used for decentralized sql database, IPFS ( Filecoin ) is used to store files and other data, moralis is used to develop the website and it's functionalities and valist was used to upload the website in IPFS thus making it decentralized.
 
-| Sponsors Used |
-|---------------|
-|[Moralis](#moralis)|
-|[Filecoin](#filecoin)|
-|[XMTP](#xmtp)|
-|[Chainlink](#chainlink)|
-|[Tableland](#tableland)|
-|[Valist](#valist)|
-|[Polygon](#polygon)|
+| Sponsors Used           |
+| ----------------------- |
+| [Moralis](#moralis)     |
+| [Filecoin](#filecoin)   |
+| [XMTP](#xmtp)           |
+| [Chainlink](#chainlink) |
+| [Tableland](#tableland) |
+| [Valist](#valist)       |
+| [Polygon](#polygon)     |
 
 ## Deployements
 
 Deployed website at Vercel: [Sosol3](https://sosol3.vercel.app/)
 
-Deployed website at Valist: [Sosol3](https://bafybeihgiaqcxwzg6udbfszkpjjhb5gejgihgetfvb22tsftkyjfkon5wm.ipfs.gateway.valist.io/)
+Deployed website at Valist: [Sosol3](https://bafybeifeuywcjsfluo3askgh7sw7q5lx4rts744andr2n7uobj5p23yrxy.ipfs.gateway.valist.io/)
 
 ## Getting Started
 
@@ -83,4 +83,3 @@ Valist was used to deploy the website in an decentralized platform that makes th
 All the smart contracts are deployed on polygon mumbai testnet.
 
 [One use case example in the project](https://github.com/Ahmed-Aghadi/Sosol3/blob/main/client/src/constants/contractAddress.json)
-
