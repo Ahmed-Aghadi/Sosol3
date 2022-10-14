@@ -46,13 +46,14 @@ contract SosolNFTHandle is SosolNFTTableland {
         );
         nftToTotalToken[address(sosolNFT)] = sosolTotalToken;
         nftToOwner[address(sosolNFT)] = msgSender;
+        // " (id integer primary key, userAddress text NOT NULL, nftAddress text NOT NULL, videoID integer NOT NULL);"
         _createNftEntry(msgSender, address(sosolNFT), videoID);
         emit NFTCreated(address(sosolNFT), msgSender);
     }
 
     // Assumes the subscription is funded sufficiently.
     function _requestNft(address nftContractAddress, uint256 requestId) internal virtual {
-        if (nftToOwner[nftContractAddress] != address(0)) {
+        if (nftToOwner[nftContractAddress] == address(0)) {
             revert NftContractNotExists();
         }
         SosolNFT sosolNFT = SosolNFT(nftContractAddress);

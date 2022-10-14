@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "@tableland/sdk";
 import { useContractRead, useSigner } from "wagmi";
 import { sosolVideosAbi, sosolVideosContractAddress } from "../constants";
+import { useMoralisWeb3Api } from "react-moralis";
 import {
     AspectRatio,
     Box,
@@ -48,12 +49,24 @@ function Dashboard() {
     });
     const navigate = useNavigate();
     const { classes } = useStyles();
+    const Web3Api = useMoralisWeb3Api();
 
     useEffect(() => {
         if (isFetched && signer) {
+            fetchNFTs();
             getItems();
         }
     }, [isFetched, signer]);
+
+    const fetchNFTs = async () => {
+        // get polygon NFTs for address
+        const options = {
+            chain: "mumbai",
+            address: await signer.getAddress(),
+        };
+        const polygonNFTs = await Web3Api.account.getNFTs(options);
+        console.log("polygonNFTs", polygonNFTs);
+    };
 
     const cards = items.map((item) => (
         <Box

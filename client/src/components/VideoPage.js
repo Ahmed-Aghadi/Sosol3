@@ -324,7 +324,6 @@ function VideoPage() {
         console.log("mint fee", mintFee);
         const tx1 = await contractInstance1.requestNft(nftAddress, {
             value: mintFee,
-            gasLimit: 20000000,
         });
 
         console.log("tx1 done");
@@ -845,6 +844,8 @@ function VideoPage() {
         }
     }, [signer]);
 
+    console.log("user and owner", account == ownerAddress);
+
     useEffect(() => {
         console.log(style);
         console.log("videoHeight", videoHeight);
@@ -953,6 +954,36 @@ function VideoPage() {
         console.log("tx done");
         console.log("tx", tx);
         setMintFee(tx);
+        console.log(
+            "token rarity 0",
+            await contractInstance1.getSosolTokenRarity(0)
+        );
+        console.log(
+            "token rarity 1",
+            await contractInstance1.getSosolTokenRarity(1)
+        );
+        console.log(
+            "token rarity 2",
+            await contractInstance1.getSosolTokenRarity(2)
+        );
+        console.log(
+            "token URIs 0",
+            await contractInstance1.getSosolTokenUris(0)
+        );
+        console.log(
+            "token URIs 1",
+            await contractInstance1.getSosolTokenUris(1)
+        );
+        console.log(
+            "token URIs 2",
+            await contractInstance1.getSosolTokenUris(2)
+        );
+        console.log(
+            "total token",
+            await contractInstance1.getSosolTotalToken()
+        );
+        console.log("symbol", await contractInstance1.symbol());
+        console.log("name", await contractInstance1.name());
     };
 
     const initializeTotalNFT = async () => {

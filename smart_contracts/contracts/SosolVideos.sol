@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.12;
 
 import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
@@ -10,7 +9,6 @@ contract SosolVideos is ERC721Holder {
     uint256 private _tableId;
     string private _tableName;
     string private _prefix = "sosol3";
-
     // Interface to the `TablelandTables` registry contract
     ITablelandTables private _tableland;
 
@@ -18,6 +16,12 @@ contract SosolVideos is ERC721Holder {
         _tableland = ITablelandTables(registry);
         _tableId = _tableland.createTable(
             address(this),
+            /*
+             *  CREATE TABLE {prefix}_{chainId} (
+             *    id integer primary key,
+             *    message text
+             *  );
+             */
             string.concat(
                 "CREATE TABLE ",
                 _prefix,
@@ -35,6 +39,34 @@ contract SosolVideos is ERC721Holder {
             Strings.toString(_tableId)
         );
     }
+
+    // function create(string memory prefix) public payable {
+    //     require(tableId == 0, "Table already created!");
+    //     tableId = _tableland.createTable(
+    //         address(this),
+    //         /*
+    //          *  CREATE TABLE {prefix}_{chainId} (
+    //          *    id integer primary key,
+    //          *    message text
+    //          *  );
+    //          */
+    //         string.concat(
+    //             "CREATE TABLE ",
+    //             prefix,
+    //             "_",
+    //             Strings.toString(block.chainid),
+    //             " (id integer primary key, userAddress text NOT NULL, title text NOT NULL, thumbnailCid text NOT NULL, videoCid text NOT NULL);"
+    //         )
+    //     );
+
+    //     tableName = string.concat(
+    //         prefix,
+    //         "_",
+    //         Strings.toString(block.chainid),
+    //         "_",
+    //         Strings.toString(tableId)
+    //     );
+    // }
 
     function upload(
         string memory title,
@@ -62,12 +94,12 @@ contract SosolVideos is ERC721Holder {
         );
     }
 
-    function getTableId() public view returns (uint256) {
-        return _tableId;
-    }
-
     function getTableName() public view returns (string memory) {
         return _tableName;
+    }
+
+    function getTableId() public view returns (uint256) {
+        return _tableId;
     }
 
     function _addressToString(address x) public pure returns (string memory) {

@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.12;
 
 import "@tableland/evm/contracts/ITablelandTables.sol";
@@ -9,7 +8,6 @@ contract SosolNFTTableland {
     uint256 private _tableId;
     string private _tableName;
     string private _prefix = "sosol3";
-
     // Interface to the `TablelandTables` registry contract
     ITablelandTables private _tableland;
 
@@ -17,6 +15,12 @@ contract SosolNFTTableland {
         _tableland = ITablelandTables(registry);
         _tableId = _tableland.createTable(
             address(this),
+            /*
+             *  CREATE TABLE {prefix}_{chainId} (
+             *    id integer primary key,
+             *    message text
+             *  );
+             */
             string.concat(
                 "CREATE TABLE ",
                 _prefix,

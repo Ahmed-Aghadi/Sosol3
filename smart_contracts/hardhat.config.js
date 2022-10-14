@@ -92,7 +92,18 @@ module.exports = {
             rinkeby: ETHERSCAN_API_KEY,
             kovan: ETHERSCAN_API_KEY,
             polygon: POLYGONSCAN_API_KEY,
+            polygonMumbai: POLYGONSCAN_API_KEY,
         },
+        customChains: [
+            {
+                network: "polygonMumbai",
+                chainId: 80001,
+                urls: {
+                    apiURL: "https://api-testnet.polygonscan.com",
+                    browserURL: "https://mumbai.polygonscan.com",
+                },
+            },
+        ],
     },
     gasReporter: {
         enabled: REPORT_GAS,
@@ -119,7 +130,7 @@ module.exports = {
         settings: {
             optimizer: {
                 enabled: true,
-                runs: 200,
+                runs: 1,
             },
         },
     },
