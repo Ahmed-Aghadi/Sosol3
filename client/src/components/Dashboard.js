@@ -79,7 +79,9 @@ function Dashboard() {
             }}
         >
             <AspectRatio ratio={1920 / 1080}>
-                <Image src={"https://ipfs.moralis.io:2053/ipfs/" + item[3]} />
+                <Image
+                    src={"https://gateway.moralisipfs.com/ipfs/" + item[3]}
+                />
             </AspectRatio>
             <Text
                 color="dimmed"

@@ -877,22 +877,22 @@ function VideoPage() {
         const { columns, rows } = result;
         console.log(columns);
         console.log(rows);
-        let url = "https://ipfs.moralis.io:2053/ipfs/" + rows[0][4];
+        let url = "https://gateway.moralisipfs.com/ipfs/" + rows[0][4];
         setOwnerAddress(rows[0][1].toUpperCase());
         let response = await fetch(url);
         let data = await response.json();
         console.log("data", data);
         setTitle(data["title"]);
         setDescription(data["description"]);
-        setVideoUrl("https://ipfs.moralis.io:2053/ipfs/" + data["videoCid"]);
+        setVideoUrl("https://gateway.moralisipfs.com/ipfs/" + data["videoCid"]);
         setThumbnail(
-            "https://ipfs.moralis.io:2053/ipfs/" + data["thumbnailCid"]
+            "https://gateway.moralisipfs.com/ipfs/" + data["thumbnailCid"]
         );
         setThumbnail1(
-            "https://ipfs.moralis.io:2053/ipfs/" + data["thumbnailCid1"]
+            "https://gateway.moralisipfs.com/ipfs/" + data["thumbnailCid1"]
         );
         setThumbnail2(
-            "https://ipfs.moralis.io:2053/ipfs/" + data["thumbnailCid2"]
+            "https://gateway.moralisipfs.com/ipfs/" + data["thumbnailCid2"]
         );
 
         setThumbnailCid(data["thumbnailCid"]);

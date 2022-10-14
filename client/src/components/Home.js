@@ -68,7 +68,7 @@ function Home() {
             >
                 <AspectRatio ratio={1920 / 1080}>
                     <Image
-                        src={"https://ipfs.moralis.io:2053/ipfs/" + item[3]}
+                        src={"https://gateway.moralisipfs.com/ipfs/" + item[3]}
                     />
                 </AspectRatio>
                 <Text
@@ -143,7 +143,7 @@ function Home() {
                                 <Image
                                     key={item[0]}
                                     src={
-                                        "https://ipfs.moralis.io:2053/ipfs/" +
+                                        "https://gateway.moralisipfs.com/ipfs/" +
                                         item[3]
                                     }
                                     controls={true}
