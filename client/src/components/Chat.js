@@ -425,12 +425,20 @@ export default function Chat() {
     };
 
     useEffect(() => {
-        if (userSigner && signer && userSigner != signer) {
-            setUserSigner(signer);
+        // console.table(xmtp, signer, userSigner);
+        console.log(signer);
+        if (userSigner && userSigner._address !== signer._address) {
+            console.log("a");
             setup(true);
             return;
         }
         if (!xmtp && signer) {
+            if (userSigner && userSigner._address === signer._address) {
+                return;
+            }
+            console.log("b");
+            console.log(signer._address);
+            console.log(userSigner);
             setUserSigner(signer);
             setup(false);
             return;
@@ -467,10 +475,23 @@ export default function Chat() {
             console.log(
                 `New conversation started with ${newConversation.peerAddress}`
             );
-            setConversations((oldConversations) => [
-                newConversation,
-                ...oldConversations,
-            ]);
+            console.log(newConversation);
+            setConversations((oldConversations) => {
+                for (let i = 0; i < oldConversations.length; i++) {
+                    if (
+                        oldConversations[i].peerAddress ===
+                        newConversation.peerAddress
+                    ) {
+                        return oldConversations;
+                    }
+                }
+                return (
+                    !oldConversations.includes(newConversation) && [
+                        newConversation,
+                        ...oldConversations,
+                    ]
+                );
+            });
         }
     };
 

@@ -29,20 +29,18 @@ const wagmiClient = createClient({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <WagmiConfig client={wagmiClient}>
-            <NotificationsProvider position="top-right" zIndex={2077}>
-                <MoralisProvider
-                    serverUrl="https://t5mndyrwxyxp.usemoralis.com:2053/server"
-                    appId="F40FMMhw2xZzT2VGrBKZ9watFX08dDV3BfHo8zA3"
-                >
-                    <HashRouter>
-                        <App />
-                    </HashRouter>
-                </MoralisProvider>
-            </NotificationsProvider>
-        </WagmiConfig>
-    </React.StrictMode>
+    <WagmiConfig client={wagmiClient}>
+        <NotificationsProvider position="top-right" zIndex={2077}>
+            <MoralisProvider
+                serverUrl="https://t5mndyrwxyxp.usemoralis.com:2053/server"
+                appId="F40FMMhw2xZzT2VGrBKZ9watFX08dDV3BfHo8zA3"
+            >
+                <HashRouter>
+                    <App />
+                </HashRouter>
+            </MoralisProvider>
+        </NotificationsProvider>
+    </WagmiConfig>
 );
 
 // If you want to start measuring performance in your app, pass a function
