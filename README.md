@@ -1,6 +1,6 @@
 ## Details
 
-A decentralized social network platform where content creators all around the world can connect together by chatting with each other, upload their videos, create NFTs based on the thumbnails, mint NFTs where they would get randomly any of the NFTs, etc.
+A decentralized social network platform where content creators all around the world can connect together by chatting with each other, upload their videos, create NFTs based on the thumbnails, mint NFTs where they would get randomly any of the NFTs based on it's rarity, etc.
 
 XMTP is used to provide chatting features, Chainlink is used to get random number to select a particular NFT randomly considering it's rarity also, tableland is used for decentralized sql database, IPFS ( Filecoin ) is used to store files and other data, moralis is used to develop the website and it's functionalities and valist was used to upload the website in IPFS thus making it decentralized.
 
