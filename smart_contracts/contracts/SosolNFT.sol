@@ -26,13 +26,14 @@ contract SosolNFT is ERC721URIStorage, Ownable {
         string[3] memory sosolTokenUris,
         uint256 sosolTotalToken
     ) ERC721(nftName, nftSymbol) {
+        require((mintFee * 90) / 100 != 0); //make sure that 90% of mint fee which owner will get isn't zero as it will be rounded off to int
         i_mintFee = mintFee;
         s_sosolTotalToken = sosolTotalToken;
         s_sosolTokenRarity = sosolTokenRarity;
         s_sosolTokenUris = sosolTokenUris;
     }
 
-    function mint(address nftOwner, uint256 randomWord) public onlyOwner {
+    function mint(address nftOwner, uint256 randomWord) public onlyOwner returns (uint256) {
         s_sosolTotalToken -= 1;
         uint256 newItemId = s_tokenCounter;
         s_tokenCounter = s_tokenCounter + 1;
@@ -48,6 +49,7 @@ contract SosolNFT is ERC721URIStorage, Ownable {
         _safeMint(nftOwner, newItemId);
         _setTokenURI(newItemId, s_sosolTokenUris[tokenIndex]);
         emit NftMinted(tokenIndex, nftOwner);
+        return tokenIndex;
     }
 
     function getMintFee() public view returns (uint256) {

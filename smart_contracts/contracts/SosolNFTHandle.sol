@@ -3,13 +3,14 @@ pragma solidity ^0.8.12;
 
 import "./SosolNFT.sol";
 import "./SosolNFTTableland.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 error NeedMoreETH();
 error NFTNotAvailable();
 error WithdrawFailed();
 error NftContractNotExists();
 
-contract SosolNFTHandle is SosolNFTTableland {
+contract SosolNFTHandle is SosolNFTTableland, Ownable {
     struct NftRequest {
         address requester;
         address nftContract;
@@ -24,7 +25,11 @@ contract SosolNFTHandle is SosolNFTTableland {
     mapping(address => uint256) private ownerToBalance;
     mapping(address => uint256) private nftToTotalToken;
 
-    constructor(address registry) SosolNFTTableland(registry) {}
+    uint256 private s_nftCreatePrice;
+
+    constructor(address registry, uint256 nftCreatePrice) SosolNFTTableland(registry) {
+        s_nftCreatePrice = nftCreatePrice;
+    }
 
     function _createNFT(
         address msgSender,
@@ -36,6 +41,9 @@ contract SosolNFTHandle is SosolNFTTableland {
         string[3] memory sosolTokenUris,
         uint256 sosolTotalToken
     ) internal virtual {
+        if (msg.value < s_nftCreatePrice) {
+            revert NeedMoreETH();
+        }
         SosolNFT sosolNFT = new SosolNFT(
             nftName,
             nftSymbol,
@@ -81,8 +89,9 @@ contract SosolNFTHandle is SosolNFTTableland {
         address nftOwner = s_requestIdToNftRequest[requestId].requester;
         address nftAddress = s_requestIdToNftRequest[requestId].nftContract;
         SosolNFT nftContract = SosolNFT(nftAddress);
-        nftContract.mint(nftOwner, randomWords[0]);
-        ownerToBalance[nftToOwner[nftAddress]] = nftContract.getMintFee();
+        uint256 tokenIndex = nftContract.mint(nftOwner, randomWords[0]);
+        _createNftMintEntry(nftOwner, nftAddress, tokenIndex);
+        ownerToBalance[nftToOwner[nftAddress]] += (nftContract.getMintFee() * 90) / 100;
         emit NftMintRequested(nftOwner, nftAddress);
     }
 
@@ -94,6 +103,21 @@ contract SosolNFTHandle is SosolNFTTableland {
         if (!success) {
             revert WithdrawFailed();
         }
+    }
+
+    function _withdrawMarketplace() internal virtual onlyOwner {
+        (bool success, ) = owner().call{value: address(this).balance}("");
+        if (!success) {
+            revert WithdrawFailed();
+        }
+    }
+
+    function setNftCreatePrice(uint256 nftCreatePrice) public onlyOwner {
+        s_nftCreatePrice = nftCreatePrice;
+    }
+
+    function getNftCreatePrice() public view returns (uint256) {
+        return s_nftCreatePrice;
     }
 
     function getNftContractOwner(address nftContract) public view returns (address) {

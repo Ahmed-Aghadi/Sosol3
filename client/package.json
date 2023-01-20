@@ -13,7 +13,7 @@
         "@mantine/notifications": "^5.4.0",
         "@rainbow-me/rainbowkit": "^0.6.0",
         "@rajesh896/video-thumbnails-generator": "^2.3.9",
-        "@tableland/sdk": "^3.1.2",
+        "@tableland/sdk": "^3.1.7",
         "@tabler/icons": "^1.96.0",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",

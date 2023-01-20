@@ -12,6 +12,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     let vrfCoordinatorV2Address = networkConfig[chainId].vrfCoordinatorV2
     let subscriptionId = networkConfig[chainId].subscriptionId
     let tablelandRegistry = networkConfig[chainId].tablelandRegistry
+    let nftCreatePrice = networkConfig[chainId].nftCreatePrice
     const waitBlockConfirmations = developmentChains.includes(network.name)
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
@@ -28,6 +29,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         subscriptionId,
         networkConfig[chainId]["gasLane"],
         networkConfig[chainId]["callbackGasLimit"],
+        nftCreatePrice,
     ]
     const sosolNFTMarketplace = await deploy("SosolNFTMarketplace", {
         from: deployer,

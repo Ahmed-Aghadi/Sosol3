@@ -22,6 +22,7 @@ const networkConfig = {
         // mintFee: "10000000000000000", // 0.01 ETH
         subscriptionId: "1919", // add your ID here!
         tablelandRegistry: "0x4b48841d4b32c4650e4abc117a03fe8b51f38f68",
+        nftCreatePrice: "10000000000000000", // 0.01 ETH
     },
     // 4: {
     //     name: "rinkeby",

@@ -21,8 +21,9 @@ contract SosolNFTMarketplace is ERC721Holder, VRFConsumerBaseV2, SosolNFTTablela
         address vrfCoordinatorV2,
         uint64 subscriptionId,
         bytes32 gasLane, // keyH
-        uint32 callbackGasLimit
-    ) VRFConsumerBaseV2(vrfCoordinatorV2) SosolNFTHandle(registry) {
+        uint32 callbackGasLimit,
+        uint256 nftCreatePrice
+    ) VRFConsumerBaseV2(vrfCoordinatorV2) SosolNFTHandle(registry, nftCreatePrice) {
         i_vrfCoordinator = VRFCoordinatorV2Interface(vrfCoordinatorV2);
         i_gasLane = gasLane;
         i_subscriptionId = subscriptionId;
@@ -37,7 +38,7 @@ contract SosolNFTMarketplace is ERC721Holder, VRFConsumerBaseV2, SosolNFTTablela
         uint256[3] memory sosolTokenRarity,
         string[3] memory sosolTokenUris,
         uint256 sosolTotalToken
-    ) public {
+    ) public payable {
         _createNFT(
             msg.sender,
             videoID,
@@ -75,5 +76,9 @@ contract SosolNFTMarketplace is ERC721Holder, VRFConsumerBaseV2, SosolNFTTablela
 
     function withdraw() public {
         _withdraw(msg.sender);
+    }
+
+    function withdrawMarketplace() public {
+        _withdrawMarketplace();
     }
 }
